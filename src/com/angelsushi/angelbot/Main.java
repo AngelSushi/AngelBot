@@ -1,6 +1,7 @@
 package com.angelsushi.angelbot;
 
 import com.angelsushi.angelbot.commands.DevisCommand;
+import com.angelsushi.angelbot.commands.check.CheckFeaturesCommand;
 import com.angelsushi.angelbot.utils.MYSQLConnect;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -46,6 +47,9 @@ public class Main {
         commands.put("devis",new DevisCommand(true));
         commands.put("facture",new DevisCommand(false));
 
+
+
+        commands.put("check",new CheckFeaturesCommand());
     }
 
     private static void setupListeners() {
