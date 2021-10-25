@@ -1,5 +1,6 @@
 package com.angelsushi.angelbot;
 
+import com.angelsushi.angelbot.commands.DevisCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import com.angelsushi.angelbot.commands.CommandDataParser;
@@ -49,6 +50,8 @@ public class Main {
         commands.put("ping", new Ping());
         commands.put("say", new Say());
         commands.put("serverinfo", new ServerInfo());
+        commands.put("devis",new DevisCommand(true));
+        commands.put("facture",new DevisCommand(false));
     }
 
     private static void setupListeners() {

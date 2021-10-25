@@ -19,9 +19,9 @@ public class OnMessageListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent messageReceivedEvent) {
         if (messageReceivedEvent.getAuthor().isBot()) return;
-
         if ((messageReceivedEvent.getMessage().getContentRaw().startsWith(Constants.PREFIX)) && (!messageReceivedEvent.getMessage().getAuthor().getId().equals(messageReceivedEvent.getJDA().getSelfUser().getId()))) {
             try {
+                messageReceivedEvent.getTextChannel().deleteMessageById(messageReceivedEvent.getTextChannel().getLatestMessageId()).queue();
                 Main.executeCommand(Main.commandDataParser.parseData(messageReceivedEvent.getMessage().getContentRaw(), messageReceivedEvent));
                 System.out.println("[INFO] Command has been executed by " + messageReceivedEvent.getAuthor().getName() + " in the server " + messageReceivedEvent.getGuild().getName() + ".");
             } catch (IOException e) {
