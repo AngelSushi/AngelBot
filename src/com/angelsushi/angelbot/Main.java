@@ -49,6 +49,7 @@ public class Main {
         commands.put("facture",new DevisCommand(false));
         commands.put("adduser",new AddUserCommand());
         commands.put("removeuser",new DeleteUserCommand());
+        commands.put("infouser",new DeleteUserCommand());
 
     }
 
