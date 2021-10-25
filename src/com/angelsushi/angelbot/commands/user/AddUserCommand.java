@@ -39,14 +39,9 @@ public class AddUserCommand implements ICommand {
             catch(Exception e) { e.printStackTrace(); }
 
         }
-        else {
-            EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setTitle("Erreur");
-            embedBuilder.setColor(Color.RED);
-            embedBuilder.addField("", "Merci de bien vouloir renseigner les trois éléments suivants: pseudo, id, @",false);
+        else
+            Constants.error(messageReceivedEvent,"Merci de bien vouloir renseigner les trois éléments suivants: pseudo, id, @");
 
-            messageReceivedEvent.getChannel().sendMessage(embedBuilder.build()).queue();
-        }
     }
 
     @Override

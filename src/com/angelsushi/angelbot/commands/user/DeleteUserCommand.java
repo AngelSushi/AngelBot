@@ -35,25 +35,14 @@ public class DeleteUserCommand implements ICommand {
 
                     messageReceivedEvent.getChannel().sendMessage(embedBuilder.build()).queue();
                 }
-                else {
-                    EmbedBuilder embedBuilder = new EmbedBuilder();
-                    embedBuilder.setTitle("Erreur");
-                    embedBuilder.setColor(Color.RED);
-                    embedBuilder.addField("", "Aucun utilisateur n'a été trouvé avec ce pseudo",false);
+                else
+                    Constants.error(messageReceivedEvent,"Aucun utilisateur n'a été trouvé avec ce pseudo");
 
-                    messageReceivedEvent.getChannel().sendMessage(embedBuilder.build()).queue();
-                }
             }
             catch(Exception e) { e.printStackTrace(); }
         }
-        else {
-            EmbedBuilder embedBuilder = new EmbedBuilder();
-            embedBuilder.setTitle("Erreur");
-            embedBuilder.setColor(Color.RED);
-            embedBuilder.addField("", "Merci de bien vouloir renseigner l'élement suivant: pseudo",false);
-
-            messageReceivedEvent.getChannel().sendMessage(embedBuilder.build()).queue();
-        }
+        else
+            Constants.error(messageReceivedEvent,"Merci de bien vouloir renseigner l'élement suivant: pseudo");
     }
 
     @Override
@@ -68,7 +57,7 @@ public class DeleteUserCommand implements ICommand {
 
     @Override
     public String commandDescription() {
-        return null;
+        return "";
     }
 
     @Override
