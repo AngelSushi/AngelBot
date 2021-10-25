@@ -23,7 +23,7 @@ public class AddUserCommand implements ICommand {
                 statement.setString(3,args[2]);
                 statement.execute();
                 Statement state = MYSQLConnect.getConn().createStatement();
-                state.execute("SELECT * FROM users WHERE name=" + args[0]);
+                state.executeQuery("SELECT * FROM users WHERE name=" + args[0]);
                 ResultSet result = state.getResultSet();
 
                 EmbedBuilder embedBuilder = new EmbedBuilder();
