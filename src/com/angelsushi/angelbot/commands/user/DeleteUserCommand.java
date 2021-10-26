@@ -25,7 +25,7 @@ public class DeleteUserCommand implements ICommand {
                 if(result.next()) {
                     PreparedStatement statement = MYSQLConnect.getConn().prepareStatement("DELETE FROM users WHERE name=?");
                     statement.setString(1,args[0]);
-                    statement.executeQuery();
+                    statement.execute();
 
 
                     EmbedBuilder embedBuilder = new EmbedBuilder();

@@ -32,14 +32,13 @@ public class InfoUserCommand implements ICommand {
                     embedBuilder.addField("discord_id",result.getString("discord_id"),true);
                     embedBuilder.addField("discord_name",result.getString("discord_name"),true);
 
-                    embedBuilder.addField("","",false);
-
                     PreparedStatement commandStatement = MYSQLConnect.getConn().prepareStatement("SELECT * FROM users_commands WHERE user_id=?");
                     commandStatement.setInt(1,result.getInt("id"));
                     commandStatement.executeQuery();
                     ResultSet commandResult = commandStatement.getResultSet();
 
                     if(commandResult.next()) {
+                        embedBuilder.addField("","",false);
                         StringBuilder command_id = new StringBuilder();
                         while(commandResult.next()) {
                             command_id.append(commandResult.getString("command_id"));
